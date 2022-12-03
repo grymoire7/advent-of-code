@@ -7,7 +7,6 @@ priority = ->(letter) { ('a'..'z').include?(letter) ? letter.ord - 96 : letter.o
 p1 = input
   .map { |line| line.chars.each_slice(line.size / 2).map(&:join) }
   .map { |pair| pair.map(&:chars).inject(&:&).first }
-  # .map { |pair| (pair.first.chars & pair.last.chars).join }
   .map { |letter| priority.call(letter) }
   .sum
 
