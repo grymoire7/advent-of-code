@@ -18,7 +18,7 @@ process_moves = ->(stacks, transfer_type) {
     num, from, to = line.scan(/\d+/).map(&:to_i)
     stacks_clone[to].push(stacks_clone[from].pop(num).send(transfer_type)).flatten!
   end
-  _ans = stacks_clone.map { |s| s.last }.compact.join
+  _ans = stacks_clone.map(&:last).compact.join
 }
 
 # part 1
